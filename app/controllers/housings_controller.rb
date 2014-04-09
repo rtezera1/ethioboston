@@ -1,7 +1,6 @@
 class HousingsController < ApplicationController
   def index
     @housings = Housing.all
-
   end
 
   def show
@@ -14,7 +13,6 @@ class HousingsController < ApplicationController
 
   def create
     @housing = Housing.create(housing_params)
-
     if @housing.save
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
     else 

@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="small-6 large-6 columns">
+    <h1> List of Houses for Rent </h1>
+    <ul>
+      <lu><% @housings.each do |housing| %></li>
+      <lu><%= link_to housing.type_of_housing house_path(@housing) %>
+          <%= housing.city %> 
+          <%= housing.state %>
+          <%= housing.price %>
+          <%= housing.availability_date %>
+          <%= housing.contact_number %>
+          <%= housing.contact_email %>
+      <li><% end %></li>
+    </ul>
+  </div>
+
+  <div class="small-6 large-6 columns">
+
+    <h1> List of Jobs </h1>
+    <ul>
+      <lu><% @jobs.each do |job| %></li>
+      <lu><%= link_to job.title job_path(@job) %>
+          <%= job.email %> 
+          <%= job.location %>
+          <%= job.description %>
+          <%= job.contact_phone_number %>
+      <li><% end %></li>
+    </ul>
+  </div>
+</div>

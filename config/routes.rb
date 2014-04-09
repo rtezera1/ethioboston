@@ -7,6 +7,7 @@ Ethioboston::Application.routes.draw do
   # root 'welcome#index'
   resources :housings, only: [ :index, :show, :new, :create, :edit, :update ]
   resources :jobs, only: [ :index, :show, :new, :create, :edit , :update]
+  resources :dashboards, only: [:index]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -23,7 +24,7 @@ Ethioboston::Application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  root 'housings#index'
+  root 'dashboards#index'
   #     collection do
   #       get 'sold'
   #     end
