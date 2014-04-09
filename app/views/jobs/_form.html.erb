@@ -1,0 +1,39 @@
+<%= form_for(@job) do |f| %>
+
+  <% if @job.errors.full_messages.count > 0 %>
+    <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :job_title %>
+    <%= f.text_field :job_title %>
+  </div>
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.label :contact_phone_number %>
+    <%= f.text_field :contact_phone_number %>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
