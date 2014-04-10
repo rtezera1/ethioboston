@@ -1,5 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :edit]
+
   def index
     @jobs = Job.all 
   end
@@ -10,6 +11,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    verify_recaptcha
   end
 
   def create

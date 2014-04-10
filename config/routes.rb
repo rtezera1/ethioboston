@@ -3,18 +3,22 @@ Ethioboston::Application.routes.draw do
 
   devise_scope :user do 
     get '/users/sign_out' => 'devise/sessions#destroy'
-    get '/users/sign_up' => 'devise/registrations#new'
+    post '/users/sign_up' => 'devise/registrations#new'
   end
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  get '/dashboards' => 'dashboards#index', as: :user_root
+ 
+
+
   resources :housings, only: [ :index, :show, :new, :create, :edit, :update ]
   resources :jobs, only: [ :index, :show, :new, :create, :edit , :update]
   resources :dashboards, only: [ :index ]
-  resources :twilio
   resources :welcome, only: [ :index ]
+
+  post 'twilio/voice' => 'twilio#voice'
+  post '/jobs/new' => 'jobs#new'
+  post '/housings/new' => 'housings#new'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

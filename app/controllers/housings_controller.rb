@@ -1,18 +1,19 @@
 class HousingsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :edit]
-  def index
-    @housings = Housing.all
-  end
+
+ 
 
   def show
     @housing = Housing.find(params[:id])
   end
 
   def new
+    verify_recaptcha
     @housing = Housing.new
   end
 
   def create
+
     @housing = Housing.create(housing_params)
     if @housing.save
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
