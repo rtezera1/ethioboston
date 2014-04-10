@@ -1,4 +1,5 @@
 class HousingsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :create, :edit]
   def index
     @housings = Housing.all
   end
@@ -27,7 +28,7 @@ class HousingsController < ApplicationController
   def update
     @housing = Housing.find(params[:id])
     if @housing.update(housing.params)
-      redirect_to root
+      redirect_to new_housing_path
     else
       render :new
     end

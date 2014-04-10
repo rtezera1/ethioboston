@@ -1,5 +1,10 @@
 Ethioboston::Application.routes.draw do
   devise_for :users
+
+  devise_scope :user do 
+    get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_up' => 'devise/registrations#new'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,7 +12,9 @@ Ethioboston::Application.routes.draw do
   # root 'welcome#index'
   resources :housings, only: [ :index, :show, :new, :create, :edit, :update ]
   resources :jobs, only: [ :index, :show, :new, :create, :edit , :update]
-  resources :dashboards, only: [:index]
+  resources :dashboards, only: [ :index ]
+  resources :twilio
+  resources :welcome, only: [ :index ]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -24,7 +31,7 @@ Ethioboston::Application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  root 'dashboards#index'
+  root 'welcome#index'
   #     collection do
   #       get 'sold'
   #     end

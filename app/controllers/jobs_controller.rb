@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, except: [:new, :create, :edit]
   def index
     @jobs = Job.all 
   end
@@ -27,7 +28,7 @@ class JobsController < ApplicationController
   def update
     @job = Job.find(params[:id])
     if @job.update(job_params)
-      redirect_to root 
+      redirect_to new_housing_path
     else 
       render :edit
     end
