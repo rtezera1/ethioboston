@@ -36,9 +36,13 @@
     <%= f.label :contact_email %>
     <%= f.text_field :contact_email %>
   </div>
+  <div>
+    <%= f.file_field :avatar %>
+  <div>
      <%= recaptcha_tags %>
   </div>
-  <div>
+  </div>
+  <div class='button expand'>
     <%= f.submit %>
   </div>
 <% end %>

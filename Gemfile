@@ -31,11 +31,23 @@ gem 'devise'
 
 gem 'foundation-rails'
 
-gem 'twilio-ruby'
+gem 'twilio-ruby', '~> 3.11'
 
 gem 'rails_12factor'
 
+gem 'kaminari'
+
 gem "recaptcha", :require => "recaptcha/rails"
+
+gem 'carrierwave'
+
+gem "fog"
+
+gem 'simple_form'
+
+gem "nested_form"
+
+gem 'email_spec'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -43,6 +55,7 @@ group :doc do
 end
 
 group :development, :test do 
+  gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'factory_girl_rails'

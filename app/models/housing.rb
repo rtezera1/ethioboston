@@ -9,4 +9,8 @@ class Housing < ActiveRecord::Base
   validates :contact_email, presence: true, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ }
 
   belongs_to :user
+  
+  mount_uploader :avatar, AvatarUploader
+
+  max_paginates_per 5
 end

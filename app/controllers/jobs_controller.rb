@@ -1,9 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :edit]
 
-  def index
-    @jobs = Job.all 
-  end
+ 
 
   def show
     @job = Job.find(params[:id])
@@ -11,16 +9,22 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
-    verify_recaptcha
   end
 
   def create
     @job = Job.create(job_params)
-    if @job.save
-      redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information'
+    
+    if @job.save && verify_recaptcha
+      # @twilio = Twilio.new
+      CallList.find_each do |user|
+        @twilio = Twilio.new
+        @twilio.send_text(user.phone_number, @job )
+      end
+      redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information.'
     else
       render :new
     end
+    binding.pry
   end
 
   def edit
@@ -39,7 +43,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:name, :email, :job_title, :location, :description, :contact_phone_number)
+    params.require(:job).permit(:name, :email, :job_title, :location, :description, :contact_phone_number, :avatar)
   end
 
 end

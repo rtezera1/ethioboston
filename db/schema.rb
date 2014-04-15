@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140409010306) do
+ActiveRecord::Schema.define(version: 20140415191512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "call_lists", force: true do |t|
+    t.string   "phone_number", null: false
+    t.string   "reason",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "housings", force: true do |t|
     t.string   "type_of_housing",   null: false
@@ -26,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140409010306) do
     t.datetime "updated_at"
     t.string   "availability_date"
     t.string   "contact_number",    null: false
+    t.string   "avatar"
   end
 
   create_table "jobs", force: true do |t|
@@ -37,6 +46,7 @@ ActiveRecord::Schema.define(version: 20140409010306) do
     t.string   "contact_phone_number", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar"
   end
 
   create_table "users", force: true do |t|

@@ -28,8 +28,5 @@ Ethioboston::Application.configure do
   config.assets.debug = true
 
   #put this in development.rb and in production.rb (separate keys in each so you can test!)
-  RECAPTCHA_PUBLIC_KEY= '6LdakfESAAAAAKXzK_jIgpItpU1uE6s7YDm1VnfQ'
-  RECAPTCHA_PRIVATE_KEY= '6LdakfESAAAAAOO3xISEurZxRutBJDILNaU8jxaZ'
  
-end
 end

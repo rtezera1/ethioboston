@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :jobs
   has_many :housings
+  has_one :call_list
 end

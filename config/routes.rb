@@ -6,6 +6,10 @@ Ethioboston::Application.routes.draw do
     post '/users/sign_up' => 'devise/registrations#new'
   end
 
+  resources :users do 
+    resources :call_lists, only: [:new, :create]
+  end
+
   get '/dashboards' => 'dashboards#index', as: :user_root
  
 
@@ -18,6 +22,7 @@ Ethioboston::Application.routes.draw do
   post 'twilio/voice' => 'twilio#voice'
   post '/jobs/new' => 'jobs#new'
   post '/housings/new' => 'housings#new'
+  get "/users/:user_id/call_lists" => 'call_lists#new'
 
 
   # Example of regular route:

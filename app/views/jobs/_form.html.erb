@@ -33,9 +33,12 @@
     <%= f.text_field :contact_phone_number %>
   </div>
   <div>
-    <%= recaptcha_tags %>
+      <%= f.file_field :avatar %>
   </div>
   <div>
+    <%= recaptcha_tags %>
+  </div>
+  <div class='button expand'>
     <%= f.submit %>
   </div>
 <% end %>

@@ -8,4 +8,8 @@ class Job < ActiveRecord::Base
   validates :contact_phone_number, presence: true, length: { minimum: 10, maximum: 10 }, numericality: { only_integer: true }
 
   belongs_to :user
+
+  max_paginates_per 5
+
+  mount_uploader :avatar, AvatarUploader
 end
