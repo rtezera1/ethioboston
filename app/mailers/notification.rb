@@ -1,11 +1,19 @@
 class Notification < ActionMailer::Base
   default from: "from@example.com"
 
-  def notice(ethioboston_registration)
-    @ethioboston_registration = ethioboston_registration
+  def receipt(user)
+    @user = user
+    @confirmation = 'Thank you for signing up.'
 
-    mail to: ethioboston_registration.email,
+    mail to: user.email,
       subject: 'Confirmation'
   end
 
+  def update
+    User.find_each do |user|
+
+      mail to: user.email,
+        subject: 'New Job Posted'
+    end
+  end
 end

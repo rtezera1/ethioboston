@@ -15,16 +15,17 @@ class JobsController < ApplicationController
     @job = Job.create(job_params)
     
     if @job.save && verify_recaptcha
-      # @twilio = Twilio.new
+      @notification = Notification.new 
+      @notification.update
+      @message = Message.new
       CallList.find_each do |user|
-        @twilio = Twilio.new
-        @twilio.send_text(user.phone_number, @job )
+        @message.send_text(user.phone_number, @job.name )
       end
+      binding.pry
       redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information.'
     else
       render :new
     end
-    binding.pry
   end
 
   def edit

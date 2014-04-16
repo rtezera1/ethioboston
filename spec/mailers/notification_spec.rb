@@ -1,28 +1,21 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe Notification do
-  feature 'specifies valid information, for registration' do
-  ActionMailer::Base.deliveries = []
+describe Notification do 
 
-  prev_count = Notification.count
-  visit '/users/sign_up'
-  fill_in 'Email', with: 'user@example.com'
-  fill_in 'password', with: '12345678'
-  fill_in 'password', with: '12345678'
-  click_button 'Sign up'
+  before(:each) do
+    ActionMailer::Base.deliveries = []
+  end
 
-  expect(page).to have_content('You registered successfully')
-  expect(Notification.count).to eq(prev_count + 1)
+  it 'sends an email with successful registration' do
+    prev_mail_count = ActionMailer::Base.deliveries.count
+    @user = FactoryGirl.create(:user).register
+    expect(ActionMailer::Base.deliveries.count).to eql(prev_mail_count + 1)
+  end
 
-  # upon registering, a confirmation email should be delivered,
-  # so ActionMailer::Base.deliveries should include the email:
-  expect(ActionMailer::Base.deliveries.size).to eql(1)
-
-  # the email we just sent should have the proper subject and recipient:
-  last_email = ActionMailer::Base.deliveries.last
-  expect(last_email).to have_subject('Registration confirmed')
-  expect(last_email).to deliver_to('user@example.com')
-end
-
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'sends an email when a new job is posted' do 
+    prev_mail_count = ActionMailer::Base.deliveries.count
+    @job = FactoryGirl.create(:job)
+    @user = FactoryGirl.create(:user).notify
+    expect(ActionMailer::Base.deliveries.count).to eql(prev_mail_count + 1)
+  end 
 end

@@ -11,12 +11,12 @@ class CallListsController < ApplicationController
      # @call_list = @user.call_list.create(call_params)
      # @call_list.user = @user
      # binding.pry
-
     if @call_list.save
       redirect_to user_root_path
       flash[:notice] = "Thank You"
     else
-      redirect_to user_root_path
+      flash[:notice] = "DIDNT WORK"
+      redirect_to user_root_path   
     end
   end
 

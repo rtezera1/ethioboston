@@ -47,7 +47,9 @@ gem 'simple_form'
 
 gem "nested_form"
 
-gem 'email_spec'
+gem 'ngrok'
+
+gem 'sidekiq'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -64,6 +66,8 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'capybara'
   gem 'launchy'
+  gem 'mailcatcher'
+  gem 'email_spec'
 end
 
 
