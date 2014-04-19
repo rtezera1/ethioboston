@@ -5,12 +5,7 @@ class CallListsController < ApplicationController
     @call_list = CallList.new
   end
   def create
-    # binding.pry
-     # @user = current_user
-     @call_list = CallList.new(call_params)
-     # @call_list = @user.call_list.create(call_params)
-     # @call_list.user = @user
-     # binding.pry
+    @call_list = CallList.new(call_params)
     if @call_list.save
       redirect_to user_root_path
       flash[:notice] = "Thank You"

@@ -1,8 +1,6 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:new, :create, :edit]
 
- 
-
   def show
     @job = Job.find(params[:id])
   end
@@ -15,13 +13,13 @@ class JobsController < ApplicationController
     @job = Job.create(job_params)
     
     if @job.save && verify_recaptcha
-      @notification = Notification.new 
-      @notification.update
+
+      Notification.update  
+      
       @message = Message.new
       CallList.find_each do |user|
-        @message.send_text(user.phone_number, @job.name )
+        @message.send_text(user.phone_number, @job.job_title )
       end
-      binding.pry
       redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information.'
     else
       render :new

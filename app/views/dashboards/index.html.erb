@@ -27,11 +27,10 @@
   </div>
 
   <div >
-    <%= simple_form_for [@user, @call_list], remote: true
-     do |f| %>
-      <%= f.input :phone_number %>
+    <%= simple_form_for [@user, @call_list], remote: true do |f| %>
+      <%= f.input :phone_number, placeholder: '6175555555' %>
       <%= f.input :reason, collection: [ 'Homes', 'Jobs', 'Both'] %>
-      <%= f.button :submit %>
+      <%= f.button :submit, class: "sign-up-button" %>
       <% end %>
 
   </div>

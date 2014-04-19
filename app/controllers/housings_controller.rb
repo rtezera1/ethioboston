@@ -12,6 +12,10 @@ class HousingsController < ApplicationController
   def create
     @housing = Housing.create(housing_params)
     if @housing.save && verify_recaptcha
+      Notification.update 
+      CallList.find_each do |user|
+        @message.send_text( user.phone_number, @housing.type_of_housing )
+      end
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
     else 
       render :new

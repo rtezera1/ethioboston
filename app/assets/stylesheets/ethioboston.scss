@@ -1,0 +1,90 @@
+body {
+  background-image:url(http://www.hdewallpapers.com/wp-content/uploads/2014/02/black-design-wallpaper-10.jpg);
+}
+  
+.name h1 a {
+  font-family: 'Keania One', cursive;
+}
+.top-bar {
+  background: black;
+   top:0px;
+}
+
+.button {
+  background-color:black;
+  -moz-border-radius:0px;
+  -webkit-border-radius:0px;
+  border-radius:0px;
+  border:2px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:'Keania One', cursive;
+  font-size:28px;
+  padding:32px 76px;
+  text-decoration:none;
+  text-shadow:3px 5px 3px #2f6627;
+ 
+}
+.button:hover {
+  background-color:#5cbf2a;
+}
+.button:active {
+  position:relative;
+  top:0px;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+     background-color: black;
+  -moz-border-radius:0px;
+  -webkit-border-radius:0px;
+  border-radius:0px;
+  border:5px solid  #001A00;
+  display:inline-block;
+  cursor:pointer;
+  color:#001A00;
+  font-family:'Keania One', cursive;
+  font-size:20px;
+  padding:32px 76px;
+  text-decoration:none;
+  text-shadow:3px 5px 3px #000A00;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background-color: black; 
+  position:relative;
+  top:0px;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+  background-color:#5cbf2a;
+}
+.sign-up-button {
+    background-color:black;
+  -moz-border-radius:0px;
+  -webkit-border-radius:0px;
+  border-radius:0px;
+  border:2px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:'Keania One', cursive;
+  font-size:28px;
+  padding:10px 32px;
+  text-decoration:none;
+  text-shadow:3px 5px 3px #2f6627;
+}
+.sign-up-button:hover {
+  background-color:#5cbf2a;
+}
+label {
+  font-size: 0.875rem;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-weight: normal;
+  line-height: 1.5;
+  margin-bottom: 0;
+  /* Styles for required inputs */
+}
+

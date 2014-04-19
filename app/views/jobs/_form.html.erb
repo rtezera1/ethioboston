@@ -1,4 +1,4 @@
-<%= form_for(@job) do |f| %>
+<%= simple_form_for(@job) do |f| %>
 
   <% if @job.errors.full_messages.count > 0 %>
     <ul>
@@ -9,36 +9,30 @@
   <% end %>
 
   <div>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.input :name, placeholder: "name" %>
   </div>
   <div>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%= f.input :email, placeholder: "email" %>
   </div>
   <div>
-    <%= f.label :job_title %>
-    <%= f.text_field :job_title %>
+    <%= f.input :job_title, placeholder: "job title" %>
   </div>
   <div>
-    <%= f.label :location %>
-    <%= f.text_field :location %>
+    <%= f.input :location, placeholder: "location" %>
   </div>
   <div>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.input :description, placeholder: "description" %>
   </div>
   <div>
-    <%= f.label :contact_phone_number %>
-    <%= f.text_field :contact_phone_number %>
+    <%= f.input :contact_phone_number, placeholder: "contact phone number" %>
   </div>
   <div>
       <%= f.file_field :avatar %>
   </div>
   <div>
-    <%= recaptcha_tags %>
+    <%= recaptcha_tags ajax: true %>  
   </div>
-  <div class='button expand'>
-    <%= f.submit %>
+  <div>
+    <%= f.button :submit, class: 'sign-up-button' %>
   </div>
 <% end %>
