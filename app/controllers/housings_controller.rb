@@ -12,12 +12,7 @@ class HousingsController < ApplicationController
   def create
     @housing = Housing.create(housing_params)
     if @housing.save && verify_recaptcha
-      Notification.update 
-      CallList.find_each do |user|
-        if user.reason == 'Homes' || user.reason == 'Both'
-          HousingNotifierWorker.perform_async(user.user_id, @housing.id)
-        end
-      end
+       HousingNotifierWorker.perform_async(user.user_id, @housing.id)
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
     else 
       render :new
