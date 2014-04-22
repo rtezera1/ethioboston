@@ -12,5 +12,5 @@ class Housing < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
 
-  max_paginates_per 5
+  paginates_per 5
 end

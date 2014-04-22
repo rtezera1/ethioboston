@@ -9,7 +9,7 @@ class Job < ActiveRecord::Base
 
   belongs_to :user
 
-  max_paginates_per 5
+  paginates_per 5
 
   mount_uploader :avatar, AvatarUploader
 end
