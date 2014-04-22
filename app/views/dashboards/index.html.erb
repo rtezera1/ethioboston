@@ -1,15 +1,9 @@
 <div class="row">
 
   <div class="small-6 large-6 columns">
-    <h1> List of Houses for Rent </h1>
-      <% @housings.each do |housing| %></li>
-          <%= link_to housing.type_of_housing house_path(@housing) %>
-          <%= housing.city %> 
-          <%= housing.state %>
-          <%= housing.price %>
-          <%= housing.availability_date %>
-          <%= housing.contact_number %>
-          <%= housing.contact_email %>
+    <h1> House Listings </h1>
+      <% @housings.each do |housing| %>
+          <%= link_to housing.type_of_housing, housing_path(housing) %>
           <% end %>
       <%= paginate @housings, :remote => true %>
   </div>
@@ -17,15 +11,13 @@
   <div class="small-6 large-6 columns">
     <h1> List of Jobs </h1>
     <ul>
-      <lu><% @jobs.each do |job| %></li>
-      <lu><%= link_to job.job_title, job_path(job) %></li>
-      <li><%= job.avatar %></li>
-
-      <li><% end %></li>
+      <% @jobs.each do |job| %>
+      <%= link_to "#{job.job_title}, #{job.location}", job_path(job) %>
+      <% end %>
     </ul>
     <%= paginate @jobs, :remote => true %>
   </div >
-
+</div>
   <div class='small-8 columns'>
     <%= simple_form_for [@user, @call_list], remote: true do |f| %>
       <%= f.input :phone_number, placeholder: '6175555555' %>
@@ -33,5 +25,5 @@
       <%= f.button :submit, class: "sign-up-button" %>
       <% end %>
   </div>
-</div>
+
 

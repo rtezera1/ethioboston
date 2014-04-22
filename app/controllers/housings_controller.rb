@@ -14,7 +14,9 @@ class HousingsController < ApplicationController
     if @housing.save && verify_recaptcha
       Notification.update 
       CallList.find_each do |user|
-        @message.send_text( user.phone_number, @housing.type_of_housing )
+        if user.reason == 'Homes' || user.reason == 'Both'
+          HousingNotifierWorker.perform_async(user.user_id, @housing.id)
+        end
       end
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
     else 

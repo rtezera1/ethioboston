@@ -23,4 +23,7 @@ Ethioboston::Application.routes.draw do
   post '/jobs/new' => 'jobs#new'
   post '/housings/new' => 'housings#new'
   get "/users/:user_id/call_lists" => 'call_lists#new'
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

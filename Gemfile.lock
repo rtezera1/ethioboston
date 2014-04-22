@@ -313,6 +313,7 @@ DEPENDENCIES
   shoulda
   sidekiq
   simple_form
+  sinatra (>= 1.3.0)
   turbolinks
   twilio-ruby (~> 3.11)
   uglifier (>= 1.3.0)

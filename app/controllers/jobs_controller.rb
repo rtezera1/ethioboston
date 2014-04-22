@@ -18,7 +18,9 @@ class JobsController < ApplicationController
       
       @message = Message.new
       CallList.find_each do |user|
-        @message.send_text(user.phone_number, @job.job_title )
+        if user.reason == 'Jobs' || user.reason == 'Both'
+          @message.send_text(user.phone_number, @job.job_title )
+        end
       end
       redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information.'
     else

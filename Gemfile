@@ -70,6 +70,7 @@ group :development, :test do
   gem 'launchy'
   gem 'mailcatcher'
   gem 'email_spec'
+  gem 'sinatra', '>= 1.3.0', :require => nil
 end
 
 
