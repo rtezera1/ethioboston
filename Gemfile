@@ -55,6 +55,8 @@ gem 'newrelic_rpm'
 
 gem 'sinatra', '>= 1.3.0', :require => nil
 
+gem 'capistrano-sidekiq'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -12,7 +12,7 @@ class HousingsController < ApplicationController
   def create
     @housing = Housing.create(housing_params)
     if @housing.save && verify_recaptcha
-       HousingNotifierWorker.perform_async(user.user_id, @housing.id)
+      HousingNotifierWorker.perform_at(3.hours.from_now, user.user_id, @housing.id)
       redirect_to new_housing_path, notice: 'Thank You for Sending Us Rental Information'
     else 
       render :new
