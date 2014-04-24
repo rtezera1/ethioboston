@@ -2,7 +2,7 @@ class HousingNotifierWorker
   include Sidekiq::Worker
 
 
-  def perform(user_id, housing_id)
+  def perform(housing_id)
     CallList.find_each do |user|
       if user.reason == 'Homes' || user.reason == 'Both'
           # HousingNotifierWorker.perform_async(user.user_id, @housing.id)          

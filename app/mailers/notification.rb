@@ -16,4 +16,12 @@ class Notification < ActionMailer::Base
         subject: 'New Job Posted'
     end
   end
+
+  def new_job
+    User.find_each do |user|
+
+      mail to: user.email,
+        subject: 'New House Listing Posted'
+    end
+  end
 end

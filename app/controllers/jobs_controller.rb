@@ -13,15 +13,7 @@ class JobsController < ApplicationController
     @job = Job.create(job_params)
     
     if @job.save && verify_recaptcha
-
-      Notification.update  
-      
-      @message = Message.new
-      CallList.find_each do |user|
-        if user.reason == 'Jobs' || user.reason == 'Both'
-          @message.send_text(user.phone_number, @job.job_title )
-        end
-      end
+      JobsNotifierWorker.perform_async(@job.id)
       redirect_to new_job_path, notice: 'Thank You for Sending Us Job Opening Information.'
     else
       render :new
