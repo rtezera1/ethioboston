@@ -1,9 +1,8 @@
 class Notification < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "app23953176@heroku.com"
 
   def receipt(user)
     @user = user
-    @confirmation = 'Thank you for signing up.'
 
     mail to: user.email,
       subject: 'Confirmation'

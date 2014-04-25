@@ -13,4 +13,12 @@ class Housing < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   paginates_per 5
+
+
+  def notify
+    if save
+      Notification.update.deliver
+      return true
+    end
+  end
 end

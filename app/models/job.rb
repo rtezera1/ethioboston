@@ -12,4 +12,12 @@ class Job < ActiveRecord::Base
   paginates_per 5
 
   mount_uploader :avatar, AvatarUploader
+
+  def notify
+    if save
+      Notification.new_job.deliver
+      return true
+    end
+  end
+
 end
