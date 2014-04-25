@@ -18,7 +18,7 @@ class Notification < ActionMailer::Base
     end
   end
 
-  def new_house(@housing)
+  def new_house(housing)
     @housing = housing
 
     User.find_each do |user|
