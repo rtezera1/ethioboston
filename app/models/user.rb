@@ -14,11 +14,4 @@ class User < ActiveRecord::Base
       return true
     end
   end
-
-    def notify
-    if save
-      Notification.update.deliver
-      return true
-    end
-  end
 end

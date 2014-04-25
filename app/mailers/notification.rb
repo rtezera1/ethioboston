@@ -8,7 +8,7 @@ class Notification < ActionMailer::Base
       subject: 'Confirmation'
   end
 
-  def update
+  def new_job
     User.find_each do |user|
 
       mail to: user.email,
@@ -16,7 +16,7 @@ class Notification < ActionMailer::Base
     end
   end
 
-  def new_job
+  def new_house
     User.find_each do |user|
 
       mail to: user.email,
