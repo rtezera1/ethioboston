@@ -19,7 +19,7 @@ Ethioboston::Application.routes.draw do
   resources :dashboards, only: [ :index ]
   resources :welcome, only: [ :index ]
 
-  post 'twilio/voice' => 'twilio#voice'
+  post 'twilio/text' => 'twilio#vtext'
   post '/jobs/new' => 'jobs#new'
   post '/housings/new' => 'housings#new'
   get "/users/:user_id/call_lists" => 'call_lists#new'

@@ -47,7 +47,6 @@ gem 'simple_form'
 
 gem "nested_form"
 
-gem 'ngrok'
 
 gem 'sidekiq'
 
@@ -76,7 +75,8 @@ group :development, :test do
   gem 'launchy'
   gem 'mailcatcher'
   gem 'email_spec'
-   gem 'foreman'
+  gem 'foreman'
+  gem 'ngrok'
 end
 
 
