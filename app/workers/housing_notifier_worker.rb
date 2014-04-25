@@ -7,11 +7,11 @@ class HousingNotifierWorker
       if user.reason == 'Homes' || user.reason == 'Both'        
         @housing = Housing.find(housing_id)
         message = Message.new
-        message.send_text( user.phone_number, housing.type_of_housing )
+        message.send_text( user.phone_number, @housing.type_of_housing )
       end
     end
 
-      Notification.new_house(@housing).deliver
+    Notification.new_house(@housing).deliver
   end
 end
 
