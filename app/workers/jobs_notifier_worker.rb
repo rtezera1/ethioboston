@@ -10,9 +10,6 @@ class JobsNotifierWorker
         message.send_text( user.phone_number, job.job_title )
       end
     end
-
-    User.find_each do |user|
       Notification.new_job.deliver
-    end 
   end
 end
