@@ -7,32 +7,35 @@
       <% end %>
     </ul>
   <% end %>
-
-  <div>
-    <%= f.input :name, placeholder: "name" %>
-  </div>
-  <div>
-    <%= f.input :email, placeholder: "email" %>
-  </div>
-  <div>
-    <%= f.input :job_title, placeholder: "job title" %>
-  </div>
-  <div>
-    <%= f.input :location, placeholder: "location" %>
-  </div>
-  <div>
-    <%= f.input :description, placeholder: "description" %>
-  </div>
-  <div>
-    <%= f.input :contact_phone_number, placeholder: "contact phone number" %>
-  </div>
-  <div>
-      <%= f.file_field :avatar %>
-  </div>
-  <div>
-    <%= recaptcha_tags ajax: true %>  
-  </div>
-  <div>
-    <%= f.button :submit, class: 'sign-up-button' %>
+  <div class="row">
+    <div class="large-5 coumns">
+      <div>
+        <%= f.input :name, placeholder: "name" %>
+      </div>
+      <div>
+        <%= f.input :email, placeholder: "email" %>
+      </div>
+      <div>
+        <%= f.input :job_title, placeholder: "job title" %>
+      </div>
+      <div>
+        <%= f.input :location, placeholder: "location" %>
+      </div>
+      <div>
+        <%= f.input :description, placeholder: "description" %>
+      </div>
+      <div>
+        <%= f.input :contact_phone_number, placeholder: "contact phone number" %>
+      </div>
+      <div>
+          <%= f.file_field :avatar %>
+      </div>
+      <div>
+        <%= recaptcha_tags ajax: true %>  
+      </div>
+      <div>
+        <%= f.button :submit, class: 'sign-up-button' %>
+      </div>
+     </div>
   </div>
 <% end %>

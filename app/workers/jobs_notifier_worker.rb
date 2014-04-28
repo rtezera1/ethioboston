@@ -7,7 +7,7 @@ class JobsNotifierWorker
       if user.reason == 'Jobs' || user.reason == 'Both'
         @job = Job.find(job_id)
         message = Message.new
-        message.send_text( user.phone_number, @job.job_title )
+        message.send_text( user.phone_number, "New Job Added: #{@job.job_title}-#{@job.name}-#{@job.contact_phone_number}")
       end
     end
 

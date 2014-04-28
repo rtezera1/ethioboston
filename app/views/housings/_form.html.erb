@@ -7,35 +7,39 @@
       <% end %>
     </ul>
   <% end %>
-
-  <div>
-    <%= f.input :type_of_housing, placeholder: "type of housing" %>
-  </div>
-  <div>
-    <%= f.input :city, placeholder: "city" %>
-  </div>
-  <div>
-    <%= f.input :state, placeholder: "state" %>
-  </div>
-  <div>
-    <%= f.input :price, placeholder: "price" %>
-  </div>
-  <div>
-    <%= f.input :availability_date, placeholder: "availability date" %>
-  </div>
-  <div>
-    <%= f.input :contact_number, placeholder: "contact number" %>
-  </div>
-  <div>
-    <%= f.input :contact_email, placeholder: "contact email" %>
-  </div>
-  <div>
-    <%= f.file_field :avatar %>
-  </div>
-  <div>
-     <%= recaptcha_tags ajax: true %>
-  </dv>  
-  <div>
-    <%= f.button :submit, class: 'sign-up-button' %>
+  <div class="row">
+    <div class="large-5 coumns">
+      <div>
+        <%= f.input :type_of_housing, placeholder: "type of housing" %>
+      </div>
+      <div>
+        <%= f.input :city, placeholder: "city" %>
+      </div>
+      <div>
+        <%= f.input :state, placeholder: "state" %>
+      </div>
+      <div>
+        <%= f.input :price, placeholder: "price" %>
+      </div>
+      <div>
+        <%= f.input :availability_date, placeholder: "availability date" %>
+      </div>
+      <div>
+        <%= f.input :contact_number, placeholder: "contact number" %>
+      </div>
+      <div>
+        <%= f.input :contact_email, placeholder: "contact email" %>
+      </div>
+      <div>
+        <%= f.file_field :avatar %>
+      </div>
+      <div>
+         <%= recaptcha_tags ajax: true %>
+      </dv>  
+      <div>
+        <%= f.button :submit, class: 'sign-up-button' %>
+      </div>
+    </div>
   </div>
 <% end %>
+

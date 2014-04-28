@@ -1,18 +1,20 @@
 <div class="row">
 
   <div class="small-6 large-6 columns">
-    <h1> House Listings </h1>
+    <h1> HOUSE LISTINGS </h1>
+    <ul>
       <% @housings.each do |housing| %>
-          <%= link_to housing.type_of_housing, housing_path(housing) %>
+          <li><%= link_to "#{housing.type_of_housing}, #{housing.city} #{housing.state}", housing_path(housing) %></li>
           <% end %>
+    </ul>
       <%= paginate @housings, :remote => true %>
   </div>
 
   <div class="small-6 large-6 columns">
-    <h1> List of Jobs </h1>
+    <h1> JOB LISTINGS </h1>
     <ul>
       <% @jobs.each do |job| %>
-      <%= link_to "#{job.job_title}, #{job.location}", job_path(job) %>
+      <li><%= link_to "#{job.job_title}, #{job.location}", job_path(job) %></li>
       <% end %>
     </ul>
     <%= paginate @jobs, :remote => true %>
